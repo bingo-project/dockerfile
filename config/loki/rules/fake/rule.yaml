@@ -10,5 +10,5 @@ groups:
         labels:
           severity: error
         annotations:
-          description: Error Log Alert
-          summary: ""
+          description:
+          summary:
