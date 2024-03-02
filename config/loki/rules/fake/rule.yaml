@@ -1,9 +1,9 @@
 groups:
   - name: error
     rules:
-      - alert: LogError
+      - alert: LogAlert
         expr: |
-          sum by (level, msg, caller, ts, subject, info, trace)
+          sum by (level, msg, caller, info)
           (count_over_time({job="bingo", level="ERROR"} [1m]))
           > 0
         for: 0s
@@ -11,11 +11,4 @@ groups:
           severity: error
         annotations:
           description: Error Log Alert
-          summary: "\n
-            - Time: {{ $labels.ts }} \n
-            - Level: {{ $labels.level }} \n
-            - Msg: {{ $labels.msg }} \n
-            - Caller: {{ $labels.caller }} \n
-            - Trace: {{ $labels.trace }} \n
-            - Subject: {{ $labels.subject }} \n
-            - Info: {{ $labels.info }}"
+          summary: ""
