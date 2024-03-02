@@ -8,7 +8,7 @@ groups:
           > 0
         for: 0s
         labels:
-          severity: error
-        annotations:
-          description:
-          summary:
+        #   severity: error
+        # annotations:
+        #   description:
+        #   summary:
