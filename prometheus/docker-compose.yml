@@ -108,3 +108,34 @@ services:
       - 3000:3000
     volumes:
       - ./data/grafana:/var/lib/grafana
+
+  loki:
+    restart: always
+    image: grafana/loki
+    container_name: loki
+    hostname: loki
+    user: root
+    networks:
+      - monitor
+    ports:
+      - 3100:3100
+    volumes:
+      - ./config/loki:/etc/loki
+      - ./data/loki:/loki
+    command:
+      - "-config.file=/etc/loki/loki.yml"
+
+  promtail:
+    restart: always
+    image: grafana/promtail
+    container_name: promtail
+    hostname: promtail
+    user: root
+    networks:
+      - monitor
+    volumes:
+      - ./config/promtail:/etc/promtail
+      - ./data/promtail:/promtail
+      - /var/log:/var/log
+    command:
+     - "-config.file=/etc/promtail/promtail.yml"
