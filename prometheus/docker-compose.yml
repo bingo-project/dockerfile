@@ -137,5 +137,6 @@ services:
       - ./config/promtail:/etc/promtail
       - ./data/promtail:/promtail
       - /var/log:/var/log
+      - ./your-service/log:/var/log-your-service # add your service log path
     command:
      - "-config.file=/etc/promtail/promtail.yml"
