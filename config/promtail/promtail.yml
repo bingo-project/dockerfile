@@ -39,6 +39,7 @@ scrape_configs:
             result: result
             status: status
             ip: ip
+            err: err
             info: info
       - labels:
           level:
@@ -54,4 +55,5 @@ scrape_configs:
           result:
           status:
           ip:
+          err:
           info:
