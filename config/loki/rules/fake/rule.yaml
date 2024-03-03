@@ -3,7 +3,7 @@ groups:
     rules:
       - alert: LogAlert
         expr: |
-          sum by (level, msg, caller, info)
+          sum by (level, msg, caller, err, info)
           (count_over_time({job="bingo", level="ERROR"} [1m]))
           > 0
         for: 0s
