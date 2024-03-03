@@ -7,7 +7,7 @@ groups:
           (count_over_time({job="bingo", level="ERROR"} [1m]))
           > 0
         for: 0s
-        labels:
+        # labels:
         #   severity: error
         # annotations:
         #   description:
